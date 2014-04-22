@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HAC
 {
-    class Tick
+    class Tick : IComparable<Tick>
     {
         public double Price;
         public DateTime Time;
@@ -17,6 +17,10 @@ namespace HAC
             Time = T;
             Price = P;
             Qty = Q;
+        }
+
+        public int CompareTo(Tick that){
+            return this.Price.CompareTo(that.Price);
         }
     }
 }
